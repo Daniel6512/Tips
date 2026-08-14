@@ -2,730 +2,1047 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d0d0f">
-<meta name="description" content="Современный сайт с полезными подсказками">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<meta name="description" content="Hintly — полезные подсказки на каждый день">
 <title>Hintly — Полезные подсказки</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-:root {
-    --bg: #0b0b0d;
-    --panel: #121215;
-    --panel2: #18181c;
-    --border: rgba(255,255,255,.08);
-    --text: #f5f5f5;
-    --muted: #9b9ba3;
-    --orange: #ff7518;
-    --orange2: #ff923f;
-    --danger: #ff4d4d;
-    --radius: 18px;
+:root{
+  --bg:#0b0b0d;
+  --panel:#121216;
+  --panel2:#18181d;
+  --line:rgba(255,255,255,.08);
+  --text:#f5f5f7;
+  --muted:#9999a2;
+  --orange:#ff7518;
+  --orange2:#ff9b55;
+  --green:#55d98b;
+  --r:17px;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:
+    radial-gradient(circle at 85% 0%,rgba(255,117,24,.07),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+button,input{font:inherit}
+button{cursor:pointer}
+
+/* SIDEBAR */
+
+.sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  width:245px;
+  height:100vh;
+  padding:22px 15px;
+  background:rgba(14,14,17,.96);
+  border-right:1px solid var(--line);
+  z-index:100;
+  transition:transform .25s ease;
 }
 
-body {
-    min-height: 100vh;
-    background:
-        radial-gradient(circle at 80% 0%, rgba(255,117,24,.08), transparent 30%),
-        var(--bg);
-    color: var(--text);
-    font-family: Inter, system-ui, sans-serif;
-    overflow-x: hidden;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:5px 10px 28px;
+  font-size:21px;
+  font-weight:800;
 }
 
-button,
-input {
-    font: inherit;
+.logoIcon{
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  background:var(--orange);
+  color:#111;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(255,117,24,.2);
 }
 
-button {
-    cursor: pointer;
+.logo span{color:var(--orange)}
+
+.navTitle{
+  color:#66666d;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:0 12px 10px;
+  text-transform:uppercase;
 }
 
-/* ===== SIDEBAR ===== */
-
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    height: 100vh;
-    padding: 24px 16px;
-    background: rgba(14,14,17,.92);
-    border-right: 1px solid var(--border);
-    backdrop-filter: blur(18px);
-    z-index: 100;
-    transition: transform .35s ease;
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    padding: 4px 10px 28px;
-    font-size: 20px;
-    font-weight: 800;
+.nav button{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:12px;
+  text-align:left;
+  border-radius:11px;
+  transition:.18s ease;
 }
 
-.logo-icon {
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: var(--orange);
-    color: #111;
-    box-shadow: 0 8px 25px rgba(255,117,24,.25);
+.nav button:hover{
+  background:rgba(255,255,255,.05);
+  color:white;
 }
 
-.logo span {
-    color: var(--orange);
+.nav button.active{
+  background:rgba(255,117,24,.11);
+  color:var(--orange2);
 }
 
-.nav-title {
-    color: #66666d;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0 12px 10px;
+/* MAIN */
+
+.main{
+  margin-left:245px;
+  min-height:100vh;
 }
 
-.nav {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.container{
+  width:min(1120px,calc(100% - 46px));
+  margin:auto;
 }
 
-.nav button {
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    text-align: left;
-    transition: .2s ease;
+/* HERO */
+
+.hero{
+  padding:56px 0 25px;
 }
 
-.nav button:hover {
-    background: rgba(255,255,255,.05);
-    color: white;
+.live{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 11px;
+  border-radius:100px;
+  background:rgba(255,117,24,.08);
+  border:1px solid rgba(255,117,24,.16);
+  color:var(--orange2);
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:19px;
 }
 
-.nav button.active {
-    background: rgba(255,117,24,.12);
-    color: var(--orange2);
+.liveDot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--orange);
+  animation:pulse 1.8s infinite;
 }
 
-/* ===== MAIN ===== */
-
-.main {
-    margin-left: 250px;
-    min-height: 100vh;
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.72)}
 }
 
-.container {
-    width: min(1150px, calc(100% - 48px));
-    margin: auto;
+h1{
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.04;
+  letter-spacing:-2px;
+  max-width:800px;
 }
 
-/* ===== HEADER ===== */
+h1 span{color:var(--orange)}
 
-.header {
-    padding: 55px 0 25px;
+.subtitle{
+  color:var(--muted);
+  max-width:650px;
+  line-height:1.65;
+  font-size:14px;
+  margin-top:16px;
 }
 
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--orange2);
-    background: rgba(255,117,24,.09);
-    border: 1px solid rgba(255,117,24,.18);
-    padding: 7px 11px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 18px;
+/* STATS */
+
+.stats{
+  display:flex;
+  gap:10px;
+  margin-top:25px;
+  flex-wrap:wrap;
 }
 
-.dot {
-    width: 6px;
-    height: 6px;
-    background: var(--orange);
-    border-radius: 50%;
-    box-shadow: 0 0 12px var(--orange);
+.stat{
+  padding:12px 15px;
+  background:rgba(255,255,255,.035);
+  border:1px solid var(--line);
+  border-radius:13px;
 }
 
-h1 {
-    font-size: clamp(32px, 5vw, 58px);
-    line-height: 1.05;
-    letter-spacing: -2px;
-    max-width: 800px;
+.stat strong{
+  font-size:17px;
 }
 
-h1 span {
-    color: var(--orange);
+.stat small{
+  color:var(--muted);
+  margin-left:5px;
 }
 
-.subtitle {
-    margin-top: 16px;
-    max-width: 650px;
-    color: var(--muted);
-    line-height: 1.7;
-    font-size: 15px;
+/* SEARCH */
+
+.search{
+  position:relative;
+  margin:25px 0 14px;
 }
 
-/* ===== SEARCH ===== */
-
-.search {
-    position: relative;
-    margin: 28px 0 35px;
+.search input{
+  width:100%;
+  height:56px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  outline:none;
+  background:rgba(255,255,255,.035);
+  color:white;
+  padding:0 20px 0 48px;
+  transition:.2s;
 }
 
-.search input {
-    width: 100%;
-    height: 58px;
-    padding: 0 20px 0 50px;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-    outline: none;
-    background: rgba(255,255,255,.035);
-    color: white;
-    transition: .25s ease;
+.search input:focus{
+  border-color:rgba(255,117,24,.45);
+  box-shadow:0 0 0 3px rgba(255,117,24,.06);
 }
 
-.search input::placeholder {
-    color: #66666d;
+.searchIcon{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#777;
 }
 
-.search input:focus {
-    border-color: rgba(255,117,24,.5);
-    box-shadow: 0 0 0 4px rgba(255,117,24,.07);
+/* CATEGORIES */
+
+.categories{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:5px 0 10px;
+  scrollbar-width:none;
 }
 
-.search-icon {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #77777e;
-}
+.categories::-webkit-scrollbar{display:none}
 
-/* ===== CATEGORIES ===== */
-
-.categories {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-}
-
-.categories::-webkit-scrollbar {
-    display: none;
-}
-
-.category {
-    flex: 0 0 auto;
-    padding: 9px 14px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.03);
-    color: var(--muted);
-    border-radius: 100px;
-    transition: .2s;
+.category{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  padding:9px 14px;
+  border-radius:100px;
+  transition:.18s;
 }
 
 .category:hover,
-.category.active {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: #111;
+.category.active{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#111;
 }
 
-/* ===== SECTION ===== */
+/* ACTIONS */
 
-.section {
-    padding: 20px 0 60px;
+.actions{
+  display:flex;
+  gap:9px;
+  margin-top:9px;
 }
 
-.section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
+.action{
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--muted);
+  padding:10px 13px;
+  border-radius:11px;
+  transition:.18s;
 }
 
-.section-title {
-    font-size: 20px;
-    font-weight: 700;
+.action:hover{
+  color:white;
+  border-color:rgba(255,117,24,.35);
 }
 
-.counter {
-    color: #77777e;
-    font-size: 13px;
+.action.primary{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#111;
+  font-weight:700;
 }
 
-/* ===== CARDS ===== */
+/* SECTION */
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+.section{
+  padding:20px 0 60px;
 }
 
-.card {
-    position: relative;
-    padding: 22px;
-    min-height: 190px;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.055),
-        rgba(255,255,255,.018)
-    );
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease;
-    animation: appear .5s ease both;
+.sectionHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:17px;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: var(--orange);
-    filter: blur(80px);
-    opacity: 0;
-    right: -40px;
-    bottom: -50px;
-    transition: .3s;
+.sectionTitle{
+  font-size:20px;
+  font-weight:700;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255,117,24,.25);
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.075),
-        rgba(255,255,255,.025)
-    );
+.counter{
+  color:#77777f;
+  font-size:12px;
 }
 
-.card:hover::after {
-    opacity: .12;
+/* CARDS */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
 }
 
-.card-icon {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 11px;
-    background: rgba(255,117,24,.1);
-    color: var(--orange2);
-    margin-bottom: 18px;
+.card{
+  position:relative;
+  min-height:205px;
+  padding:20px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  transition:transform .2s ease,border-color .2s ease;
+  animation:show .35s ease both;
 }
 
-.card h3 {
-    font-size: 16px;
-    margin-bottom: 9px;
+.card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,117,24,.25);
 }
 
-.card p {
-    color: var(--muted);
-    line-height: 1.6;
-    font-size: 13px;
+.cardIcon{
+  width:39px;
+  height:39px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:rgba(255,117,24,.1);
+  color:var(--orange2);
+  margin-bottom:17px;
 }
 
-.tag {
-    display: inline-block;
-    margin-top: 15px;
-    color: #77777e;
-    font-size: 11px;
+.card h3{
+  font-size:15px;
+  margin-bottom:8px;
 }
 
-/* ===== EMPTY ===== */
-
-.empty {
-    display: none;
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--muted);
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
 }
 
-/* ===== MOBILE MENU ===== */
-
-.menu-btn {
-    display: none;
-    position: fixed;
-    right: 16px;
-    top: 16px;
-    z-index: 150;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: rgba(20,20,23,.9);
-    color: white;
+.tag{
+  display:inline-block;
+  margin-top:13px;
+  color:#77777f;
+  font-size:10px;
 }
 
-/* ===== ANIMATION ===== */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.save{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:32px;
+  height:32px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.15);
+  color:#777;
+  border-radius:9px;
+  transition:.18s;
 }
 
-/* ===== TABLET ===== */
-
-@media (max-width: 1000px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.save:hover,
+.save.saved{
+  color:var(--orange);
+  border-color:rgba(255,117,24,.3);
 }
 
-/* ===== PHONE ===== */
-
-@media (max-width: 700px) {
-    .sidebar {
-        transform: translateX(-100%);
-        box-shadow: 15px 0 50px rgba(0,0,0,.4);
-    }
-
-    .sidebar.open {
-        transform: translateX(0);
-    }
-
-    .main {
-        margin-left: 0;
-    }
-
-    .container {
-        width: min(100% - 28px, 650px);
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .header {
-        padding-top: 75px;
-    }
-
-    h1 {
-        letter-spacing: -1.3px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: auto;
-    }
+@keyframes show{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-/* ===== SMALL PHONE ===== */
+/* EMPTY */
 
-@media (max-width: 380px) {
-    .container {
-        width: calc(100% - 20px);
-    }
-
-    .header {
-        padding-top: 70px;
-    }
-
-    .search input {
-        height: 53px;
-    }
+.empty{
+  display:none;
+  text-align:center;
+  color:var(--muted);
+  padding:55px 10px;
 }
 
-/* ===== REDUCED MOTION ===== */
+/* MOBILE */
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-    }
+.menu{
+  display:none;
+  position:fixed;
+  right:15px;
+  top:15px;
+  z-index:150;
+  width:43px;
+  height:43px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#151519;
+  color:white;
+}
+
+.overlay{
+  display:none;
+}
+
+/* TABLET */
+
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* PHONE */
+
+@media(max-width:700px){
+
+  .sidebar{
+    transform:translateX(-100%);
+  }
+
+  .sidebar.open{
+    transform:translateX(0);
+  }
+
+  .main{
+    margin-left:0;
+  }
+
+  .container{
+    width:calc(100% - 26px);
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:90;
+  }
+
+  .overlay.show{
+    display:block;
+  }
+
+  .hero{
+    padding-top:75px;
+  }
+
+  h1{
+    letter-spacing:-1.3px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:180px;
+  }
+
+  .actions{
+    flex-wrap:wrap;
+  }
+}
+
+/* VERY SMALL PHONE */
+
+@media(max-width:380px){
+  .container{
+    width:calc(100% - 18px);
+  }
+
+  .stats{
+    gap:6px;
+  }
+
+  .stat{
+    padding:10px 11px;
+  }
+}
+
+/* LESS MOTION */
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
+<div class="overlay" id="overlay"></div>
+
+<button class="menu" id="menu">☰</button>
 
 <aside class="sidebar" id="sidebar">
-    <div class="logo">
-        <div class="logo-icon">✦</div>
-        Hint<span>ly</span>
-    </div>
 
-    <div class="nav-title">Навигация</div>
+  <div class="logo">
+    <div class="logoIcon">✦</div>
+    Hint<span>ly</span>
+  </div>
 
-    <nav class="nav">
-        <button class="active" data-nav="all">⌂ &nbsp; Все подсказки</button>
-        <button data-nav="tech">⚙ &nbsp; Технологии</button>
-        <button data-nav="study">▣ &nbsp; Учёба</button>
-        <button data-nav="life">✦ &nbsp; Жизнь</button>
-        <button data-nav="gaming">◈ &nbsp; Игры</button>
-        <button data-nav="useful">● &nbsp; Полезное</button>
-    </nav>
+  <div class="navTitle">Разделы</div>
+
+  <nav class="nav">
+
+    <button class="active" data-cat="all">⌂ &nbsp; Все подсказки</button>
+    <button data-cat="tech">⚙ &nbsp; Технологии</button>
+    <button data-cat="study">▣ &nbsp; Учёба</button>
+    <button data-cat="life">✦ &nbsp; Жизнь</button>
+    <button data-cat="gaming">◆ &nbsp; Игры</button>
+    <button data-cat="useful">✓ &nbsp; Полезное</button>
+    <button data-cat="saved">♡ &nbsp; Сохранённые</button>
+
+  </nav>
 </aside>
 
 <main class="main">
+
 <div class="container">
 
-    <header class="header">
+<header class="hero">
 
-        <div class="badge">
-            <span class="dot"></span>
-            Простые решения каждый день
-        </div>
+  <div class="live">
+    <span class="liveDot"></span>
+    ПРОСТЫЕ РЕШЕНИЯ КАЖДЫЙ ДЕНЬ
+  </div>
 
-        <h1>
-            Полезные подсказки<br>
-            <span>без лишнего.</span>
-        </h1>
+  <h1>
+    Полезные подсказки<br>
+    <span>без лишнего.</span>
+  </h1>
 
-        <p class="subtitle">
-            Небольшая коллекция советов, быстрых решений
-            и полезных знаний, которые можно найти за несколько секунд.
-        </p>
+  <p class="subtitle">
+    Быстрые советы, маленькие хитрости и полезные решения,
+    которые можно найти за несколько секунд.
+  </p>
 
-        <div class="search">
-            <span class="search-icon">⌕</span>
-            <input
-                id="search"
-                type="search"
-                placeholder="Поиск подсказок..."
-                autocomplete="off"
-            >
-        </div>
+  <div class="stats">
+    <div class="stat">
+      <strong id="total">30</strong>
+      <small>подсказок</small>
+    </div>
 
-        <div class="categories">
-            <button class="category active" data-category="all">
-                Все
-            </button>
-            <button class="category" data-category="tech">
-                Технологии
-            </button>
-            <button class="category" data-category="study">
-                Учёба
-            </button>
-            <button class="category" data-category="life">
-                Жизнь
-            </button>
-            <button class="category" data-category="gaming">
-                Игры
-            </button>
-            <button class="category" data-category="useful">
-                Полезное
-            </button>
-        </div>
+    <div class="stat">
+      <strong>5</strong>
+      <small>категорий</small>
+    </div>
 
-    </header>
+    <div class="stat">
+      <strong>0</strong>
+      <small>регистраций</small>
+    </div>
+  </div>
 
-    <section class="section">
+  <div class="search">
+    <span class="searchIcon">⌕</span>
+    <input
+      id="search"
+      type="search"
+      placeholder="Найти подсказку..."
+      autocomplete="off"
+    >
+  </div>
 
-        <div class="section-head">
-            <div class="section-title">Подсказки</div>
-            <div class="counter" id="counter">6 подсказок</div>
-        </div>
+  <div class="categories">
 
-        <div class="grid" id="grid">
+    <button class="category active" data-cat="all">Все</button>
+    <button class="category" data-cat="tech">Технологии</button>
+    <button class="category" data-cat="study">Учёба</button>
+    <button class="category" data-cat="life">Жизнь</button>
+    <button class="category" data-cat="gaming">Игры</button>
+    <button class="category" data-cat="useful">Полезное</button>
 
-            <article class="card" data-category="tech">
-                <div class="card-icon">⚡</div>
-                <h3>Ускорить компьютер</h3>
-                <p>
-                    Закрой ненужные программы в фоне и отключи
-                    приложения, которые запускаются вместе с системой.
-                </p>
-                <span class="tag">Технологии</span>
-            </article>
+  </div>
 
-            <article class="card" data-category="study">
-                <div class="card-icon">◈</div>
-                <h3>Быстрее запоминать</h3>
-                <p>
-                    После изучения материала попробуй рассказать
-                    его своими словами, не заглядывая в текст.
-                </p>
-                <span class="tag">Учёба</span>
-            </article>
+  <div class="actions">
+    <button class="action primary" id="random">
+      🎲 Случайная
+    </button>
 
-            <article class="card" data-category="life">
-                <div class="card-icon">✦</div>
-                <h3>Не забывать важное</h3>
-                <p>
-                    Записывай задачи сразу после того, как они
-                    появились. Так меньше вещей останется в голове.
-                </p>
-                <span class="tag">Жизнь</span>
-            </article>
+    <button class="action" id="savedBtn">
+      ♡ Сохранённые
+    </button>
+  </div>
 
-            <article class="card" data-category="gaming">
-                <div class="card-icon">◆</div>
-                <h3>Уменьшить лаги в играх</h3>
-                <p>
-                    Проверь фоновые приложения, свободное место
-                    и настройки графики. Иногда проблема именно в них.
-                </p>
-                <span class="tag">Игры</span>
-            </article>
+</header>
 
-            <article class="card" data-category="useful">
-                <div class="card-icon">✓</div>
-                <h3>Проверить информацию</h3>
-                <p>
-                    Если информация кажется сомнительной, сравни
-                    её сразу с несколькими надёжными источниками.
-                </p>
-                <span class="tag">Полезное</span>
-            </article>
+<section class="section">
 
-            <article class="card" data-category="tech">
-                <div class="card-icon">⌘</div>
-                <h3>Полезные горячие клавиши</h3>
-                <p>
-                    Ctrl + C — копировать, Ctrl + V — вставить,
-                    Ctrl + Z — отменить последнее действие.
-                </p>
-                <span class="tag">Технологии</span>
-            </article>
+  <div class="sectionHead">
+    <div class="sectionTitle">Подсказки</div>
+    <div class="counter" id="counter"></div>
+  </div>
 
-        </div>
+  <div class="grid" id="grid">
 
-        <div class="empty" id="empty">
-            Ничего не найдено.<br>
-            Попробуй изменить запрос.
-        </div>
+<!-- TECHNOLOGY -->
 
-    </section>
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">⚡</div>
+<h3>Ускорить компьютер</h3>
+<p>Закрой ненужные фоновые программы и проверь приложения, которые запускаются вместе с системой.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">💾</div>
+<h3>Освободить место</h3>
+<p>Проверь папку загрузок, корзину и временные файлы. Часто там находится много ненужного.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">⌨</div>
+<h3>Полезные клавиши</h3>
+<p>Ctrl+C копирует, Ctrl+V вставляет, Ctrl+Z отменяет действие, а Ctrl+F открывает поиск.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔋</div>
+<h3>Экономить заряд</h3>
+<p>Уменьши яркость экрана и отключи ненужные функции, если они сейчас не используются.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔐</div>
+<h3>Защитить аккаунт</h3>
+<p>Используй уникальный пароль и включай двухэтапную проверку там, где она доступна.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<article class="card" data-category="tech">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🌐</div>
+<h3>Страница тормозит</h3>
+<p>Попробуй закрыть лишние вкладки браузера и перезапустить его. Это часто помогает на слабых устройствах.</p>
+<span class="tag">Технологии</span>
+</article>
+
+<!-- STUDY -->
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🧠</div>
+<h3>Лучше запоминать</h3>
+<p>После изучения материала попробуй рассказать его своими словами без подсказки.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">⏱</div>
+<h3>Не откладывать учёбу</h3>
+<p>Начни хотя бы с пяти минут. Самое сложное обычно — именно начать.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">📝</div>
+<h3>Конспектировать быстрее</h3>
+<p>Записывай основные мысли и ключевые слова вместо полного переписывания текста.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">📚</div>
+<h3>Разобраться в теме</h3>
+<p>Раздели сложную тему на несколько маленьких вопросов и разбирай их по очереди.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔄</div>
+<h3>Повторять эффективнее</h3>
+<p>Повторяй материал через промежутки времени, а не только несколько раз подряд.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<article class="card" data-category="study">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🎯</div>
+<h3>Не отвлекаться</h3>
+<p>На время занятия убери лишние уведомления и оставь перед собой только нужные материалы.</p>
+<span class="tag">Учёба</span>
+</article>
+
+<!-- LIFE -->
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">✓</div>
+<h3>Не забывать важное</h3>
+<p>Записывай задачи сразу после того, как они появились, вместо того чтобы держать всё в голове.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🗓</div>
+<h3>Планировать день</h3>
+<p>Выбери несколько главных дел на день. Огромный список задач часто только мешает.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🧹</div>
+<h3>Быстрее навести порядок</h3>
+<p>Сначала убери вещи с самых заметных поверхностей, а затем переходи к мелочам.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">💡</div>
+<h3>Не забыть идею</h3>
+<p>Запиши её одним предложением. Потом, когда будет время, можно спокойно развить мысль.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🎒</div>
+<h3>Собраться быстрее</h3>
+<p>Сложи необходимые вещи заранее, чтобы утром не искать каждую вещь отдельно.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<article class="card" data-category="life">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🌙</div>
+<h3>Подготовиться ко сну</h3>
+<p>Перед сном закончи дела и убери яркие экраны хотя бы на некоторое время.</p>
+<span class="tag">Жизнь</span>
+</article>
+
+<!-- GAMING -->
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🎮</div>
+<h3>Уменьшить лаги</h3>
+<p>Закрой лишние приложения, проверь свободное место и попробуй снизить настройки графики.</p>
+<span class="tag">Игры</span>
+</article>
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🎯</div>
+<h3>Тренировать реакцию</h3>
+<p>Короткие регулярные тренировки обычно полезнее одного очень длинного занятия.</p>
+<span class="tag">Игры</span>
+</article>
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">⚙</div>
+<h3>Настроить управление</h3>
+<p>Попробуй изменить чувствительность и расположение кнопок под свой стиль игры.</p>
+<span class="tag">Игры</span>
+</article>
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">📶</div>
+<h3>Стабильнее соединение</h3>
+<p>Если игра использует интернет, попробуй уменьшить нагрузку на сеть и приблизиться к роутеру.</p>
+<span class="tag">Игры</span>
+</article>
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🏆</div>
+<h3>Не терять прогресс</h3>
+<p>Проверь, синхронизируется ли игровой прогресс с аккаунтом или облачным сохранением.</p>
+<span class="tag">Игры</span>
+</article>
+
+<article class="card" data-category="gaming">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔊</div>
+<h3>Лучше слышать игру</h3>
+<p>Настрой громкость эффектов и музыки так, чтобы важные игровые звуки не терялись.</p>
+<span class="tag">Игры</span>
+</article>
+
+<!-- USEFUL -->
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔎</div>
+<h3>Проверить информацию</h3>
+<p>Сравни сомнительную информацию с несколькими независимыми и надёжными источниками.</p>
+<span class="tag">Полезное</span>
+</article>
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">💰</div>
+<h3>Не купить лишнее</h3>
+<p>Перед покупкой подожди немного и проверь цену в нескольких магазинах.</p>
+<span class="tag">Полезное</span>
+</article>
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">📱</div>
+<h3>Найти нужный файл</h3>
+<p>Используй поиск по имени файла вместо долгого просмотра всех папок вручную.</p>
+<span class="tag">Полезное</span>
+</article>
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🧩</div>
+<h3>Разобраться с проблемой</h3>
+<p>Сначала попробуй воспроизвести проблему и определить, после какого действия она появляется.</p>
+<span class="tag">Полезное</span>
+</article>
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">📌</div>
+<h3>Ничего не забыть</h3>
+<p>Используй заметки или список задач для вещей, которые нужно сделать позже.</p>
+<span class="tag">Полезное</span>
+</article>
+
+<article class="card" data-category="useful">
+<button class="save" aria-label="Сохранить">♡</button>
+<div class="cardIcon">🔧</div>
+<h3>Сначала простое</h3>
+<p>Перед сложным ремонтом или настройкой проверь самые очевидные причины проблемы.</p>
+<span class="tag">Полезное</span>
+</article>
+
+  </div>
+
+  <div class="empty" id="empty">
+    Ничего не найдено.<br>
+    Попробуй другой запрос или категорию.
+  </div>
+
+</section>
 
 </div>
 </main>
 
 <script>
-const search = document.getElementById("search");
-const cards = [...document.querySelectorAll(".card")];
-const categories = [...document.querySelectorAll(".category")];
-const navButtons = [...document.querySelectorAll(".nav button")];
-const counter = document.getElementById("counter");
-const empty = document.getElementById("empty");
+const cards=[...document.querySelectorAll(".card")];
+const categories=[...document.querySelectorAll(".category")];
+const nav=[...document.querySelectorAll(".nav button")];
+const search=document.getElementById("search");
+const counter=document.getElementById("counter");
+const empty=document.getElementById("empty");
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+const menu=document.getElementById("menu");
 
-let currentCategory = "all";
+let current="all";
 
-function update() {
-    const query = search.value.toLowerCase().trim();
-    let visible = 0;
+/* SAVED */
 
-    cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        const category = card.dataset.category;
+let saved=JSON.parse(localStorage.getItem("hintlySaved")||"[]");
 
-        const matchesText = text.includes(query);
-        const matchesCategory =
-            currentCategory === "all" ||
-            category === currentCategory;
+cards.forEach((card,i)=>{
+  card.dataset.id=i;
 
-        const show = matchesText && matchesCategory;
+  const btn=card.querySelector(".save");
 
-        card.style.display = show ? "" : "none";
+  if(saved.includes(i)){
+    btn.classList.add("saved");
+    btn.textContent="♥";
+  }
 
-        if (show) visible++;
-    });
+  btn.addEventListener("click",e=>{
+    e.stopPropagation();
 
-    counter.textContent =
-        visible + (visible === 1 ? " подсказка" : " подсказок");
+    if(saved.includes(i)){
+      saved=saved.filter(x=>x!==i);
+      btn.classList.remove("saved");
+      btn.textContent="♡";
+    }else{
+      saved.push(i);
+      btn.classList.add("saved");
+      btn.textContent="♥";
+    }
 
-    empty.style.display = visible === 0 ? "block" : "none";
+    localStorage.setItem("hintlySaved",JSON.stringify(saved));
+
+    if(current==="saved") update();
+  });
+});
+
+/* FILTER */
+
+function update(){
+
+  const q=search.value.toLowerCase().trim();
+  let visible=0;
+
+  cards.forEach(card=>{
+
+    const text=card.innerText.toLowerCase();
+    const category=card.dataset.category;
+    const id=Number(card.dataset.id);
+
+    const textOK=!q||text.includes(q);
+    const catOK=
+      current==="all"||
+      current===category||
+      (current==="saved"&&saved.includes(id));
+
+    const show=textOK&&catOK;
+
+    card.style.display=show?"":"none";
+
+    if(show){
+      visible++;
+      card.style.animation="none";
+      card.offsetHeight;
+      card.style.animation="show .35s ease both";
+    }
+  });
+
+  counter.textContent=
+    visible+(visible===1?" подсказка":" подсказок");
+
+  empty.style.display=visible?"none":"block";
 }
 
-categories.forEach(button => {
-    button.addEventListener("click", () => {
-        categories.forEach(b => b.classList.remove("active"));
-        button.classList.add("active");
+/* CATEGORY */
 
-        currentCategory = button.dataset.category;
-        update();
-    });
+function setCategory(cat){
+
+  current=cat;
+
+  categories.forEach(b=>{
+    b.classList.toggle("active",b.dataset.cat===cat);
+  });
+
+  nav.forEach(b=>{
+    b.classList.toggle("active",b.dataset.cat===cat);
+  });
+
+  update();
+  closeMenu();
+}
+
+categories.forEach(b=>{
+  b.addEventListener("click",()=>setCategory(b.dataset.cat));
 });
 
-navButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        navButtons.forEach(b => b.classList.remove("active"));
-        button.classList.add("active");
-
-        currentCategory = button.dataset.nav;
-
-        categories.forEach(b => {
-            b.classList.toggle(
-                "active",
-                b.dataset.category === currentCategory
-            );
-        });
-
-        update();
-
-        if (window.innerWidth <= 700) {
-            document.getElementById("sidebar")
-                .classList.remove("open");
-        }
-    });
+nav.forEach(b=>{
+  b.addEventListener("click",()=>setCategory(b.dataset.cat));
 });
 
-search.addEventListener("input", update);
+search.addEventListener("input",update);
 
-document.getElementById("menuBtn")
-    .addEventListener("click", () => {
-        document.getElementById("sidebar")
-            .classList.toggle("open");
-    });
+/* RANDOM */
 
-/* Закрытие меню при клике за его пределами */
-document.addEventListener("click", event => {
-    const sidebar = document.getElementById("sidebar");
-    const menu = document.getElementById("menuBtn");
+document.getElementById("random").addEventListener("click",()=>{
 
-    if (
-        window.innerWidth <= 700 &&
-        sidebar.classList.contains("open") &&
-        !sidebar.contains(event.target) &&
-        !menu.contains(event.target)
-    ) {
-        sidebar.classList.remove("open");
-    }
+  const available=cards.filter(card=>{
+    return card.style.display!=="none";
+  });
+
+  if(!available.length)return;
+
+  const card=
+    available[Math.floor(Math.random()*available.length)];
+
+  card.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+  card.animate(
+    [
+      {transform:"scale(1)"},
+      {transform:"scale(1.025)"},
+      {transform:"scale(1)"}
+    ],
+    {duration:450}
+  );
 });
 
-/* Начальная проверка */
+/* SAVED BUTTON */
+
+document.getElementById("savedBtn").addEventListener("click",()=>{
+  setCategory("saved");
+});
+
+/* MOBILE MENU */
+
+function closeMenu(){
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+menu.addEventListener("click",()=>{
+  sidebar.classList.toggle("open");
+  overlay.classList.toggle("show");
+});
+
+overlay.addEventListener("click",closeMenu);
+
+/* START */
+
+document.getElementById("total").textContent=cards.length;
+
 update();
 </script>
 
