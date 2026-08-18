@@ -26,9 +26,7 @@
   padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   background:
@@ -40,16 +38,10 @@ body{
   overflow-x:hidden;
 }
 
-button,input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
+button,input{font:inherit}
+button{cursor:pointer}
 
 /* SIDEBAR */
-
 .sidebar{
   position:fixed;
   left:0;
@@ -83,9 +75,7 @@ button{
   box-shadow:0 6px 20px rgba(255,117,24,.2);
 }
 
-.logo span{
-  color:var(--orange);
-}
+.logo span{color:var(--orange)}
 
 .navTitle{
   color:#66666d;
@@ -123,8 +113,6 @@ button{
   color:var(--orange2);
 }
 
-/* SETTINGS BUTTON */
-
 .settingsButton.settingsButton{
   margin-top:18px!important;
   background:transparent!important;
@@ -135,25 +123,14 @@ button{
   font-weight:500;
 }
 
-.settingsButton span{
-  color:#fff!important;
-}
+.settingsButton span{color:#fff!important}
 
 .settingsButton:hover{
   background:rgba(255,255,255,.05)!important;
   color:#fff!important;
-}
-
-.settingsButton:hover span{
-  color:#fff!important;
-}
-
-.settingsButton:hover{
-  background:rgba(255,255,255,.05)!important;
 }
 
 /* MAIN */
-
 .main{
   margin-left:245px;
   min-height:100vh;
@@ -165,10 +142,7 @@ button{
 }
 
 /* HERO */
-
-.hero{
-  padding:56px 0 25px;
-}
+.hero{padding:56px 0 25px}
 
 .live{
   display:inline-flex;
@@ -193,15 +167,8 @@ button{
 }
 
 @keyframes pulse{
-  0%,100%{
-    opacity:1;
-    transform:scale(1);
-  }
-
-  50%{
-    opacity:.35;
-    transform:scale(.72);
-  }
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.72)}
 }
 
 h1{
@@ -211,9 +178,7 @@ h1{
   max-width:800px;
 }
 
-h1 span{
-  color:var(--orange);
-}
+h1 span{color:var(--orange)}
 
 .subtitle{
   color:var(--muted);
@@ -224,7 +189,6 @@ h1 span{
 }
 
 /* STATS */
-
 .stats{
   display:flex;
   gap:10px;
@@ -239,17 +203,10 @@ h1 span{
   border-radius:13px;
 }
 
-.stat strong{
-  font-size:17px;
-}
-
-.stat small{
-  color:var(--muted);
-  margin-left:5px;
-}
+.stat strong{font-size:17px}
+.stat small{color:var(--muted);margin-left:5px}
 
 /* SEARCH */
-
 .search{
   position:relative;
   margin:25px 0 14px;
@@ -281,7 +238,6 @@ h1 span{
 }
 
 /* CATEGORIES */
-
 .categories{
   display:flex;
   gap:8px;
@@ -290,9 +246,7 @@ h1 span{
   scrollbar-width:none;
 }
 
-.categories::-webkit-scrollbar{
-  display:none;
-}
+.categories::-webkit-scrollbar{display:none}
 
 .category{
   flex:0 0 auto;
@@ -312,7 +266,6 @@ h1 span{
 }
 
 /* ACTIONS */
-
 .actions{
   display:flex;
   gap:9px;
@@ -341,10 +294,7 @@ h1 span{
 }
 
 /* SECTION */
-
-.section{
-  padding:20px 0 60px;
-}
+.section{padding:20px 0 60px}
 
 .sectionHead{
   display:flex;
@@ -364,7 +314,6 @@ h1 span{
 }
 
 /* CARDS */
-
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -447,7 +396,6 @@ h1 span{
     opacity:0;
     transform:translateY(8px);
   }
-
   to{
     opacity:1;
     transform:translateY(0);
@@ -455,7 +403,6 @@ h1 span{
 }
 
 /* SETTINGS */
-
 .settingsPanel{
   position:fixed;
   left:245px;
@@ -465,7 +412,10 @@ h1 span{
   background:rgba(14,14,17,.98);
   border-right:1px solid var(--line);
   z-index:200;
-  transform:translateX(-110%);
+
+  /* ИСПРАВЛЕНИЕ ПК */
+  transform:translateX(calc(-100% - 245px));
+
   transition:transform .3s ease;
   padding:28px 22px;
   overflow-y:auto;
@@ -482,9 +432,7 @@ h1 span{
   margin-bottom:30px;
 }
 
-.settingsHeader h2{
-  font-size:23px;
-}
+.settingsHeader h2{font-size:23px}
 
 .closeSettings{
   width:38px;
@@ -556,7 +504,6 @@ h1 span{
 }
 
 /* EMPTY */
-
 .empty{
   display:none;
   text-align:center;
@@ -565,7 +512,6 @@ h1 span{
 }
 
 /* MOBILE */
-
 .menu{
   display:none;
   position:fixed;
@@ -580,9 +526,7 @@ h1 span{
   color:white;
 }
 
-.overlay{
-  display:none;
-}
+.overlay{display:none}
 
 .settingsOverlay{
   display:none;
@@ -592,22 +536,14 @@ h1 span{
   z-index:190;
 }
 
-.settingsOverlay.show{
-  display:block;
-}
+.settingsOverlay.show{display:block}
 
 /* TABLET */
-
 @media(max-width:1000px){
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
+  .grid{grid-template-columns:repeat(2,1fr)}
 }
 
 /* PHONE */
-
 @media(max-width:700px){
 
   .sidebar{
@@ -637,56 +573,44 @@ h1 span{
     z-index:90;
   }
 
-  .overlay.show{
-    display:block;
-  }
+  .overlay.show{display:block}
 
-  .hero{
-    padding-top:75px;
-  }
+  .hero{padding-top:75px}
 
-  h1{
-    letter-spacing:-1.3px;
-  }
+  h1{letter-spacing:-1.3px}
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+  .grid{grid-template-columns:1fr}
 
-  .card{
-    min-height:180px;
-  }
+  .card{min-height:180px}
 
-  .actions{
-    flex-wrap:wrap;
-  }
+  .actions{flex-wrap:wrap}
 
   .settingsPanel{
     left:0;
     width:min(390px,92%);
+
+    /* На телефоне оставляем исходное поведение */
+    transform:translateX(-110%);
+  }
+
+  .settingsPanel.open{
+    transform:translateX(0);
   }
 }
 
 /* VERY SMALL PHONE */
-
 @media(max-width:380px){
 
   .container{
     width:calc(100% - 18px);
   }
 
-  .stats{
-    gap:6px;
-  }
+  .stats{gap:6px}
 
-  .stat{
-    padding:10px 11px;
-  }
-
+  .stat{padding:10px 11px}
 }
 
 /* LESS MOTION */
-
 @media(prefers-reduced-motion:reduce){
 
   *,
@@ -696,13 +620,9 @@ h1 span{
     transition:none!important;
     scroll-behavior:auto!important;
   }
-
 }
 
-/* =====================================================
-   FIX ONLY FOR TABLET LANDSCAPE
-   ===================================================== */
-
+/* TABLET LANDSCAPE */
 @media screen
   and (orientation:landscape)
   and (hover:none)
@@ -729,9 +649,7 @@ h1 span{
     margin-right:auto;
   }
 
-  .menu{
-    display:block;
-  }
+  .menu{display:block}
 
   .overlay{
     position:fixed;
@@ -741,15 +659,12 @@ h1 span{
     display:none;
   }
 
-  .overlay.show{
-    display:block;
-  }
+  .overlay.show{display:block}
 
   .grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
-
 </style>
 </head>
 
@@ -872,27 +787,20 @@ h1 span{
 <header class="hero">
 
   <div class="live">
-
     <span class="liveDot"></span>
-
     <span data-i18n="liveText">
       SIMPLE SOLUTIONS EVERY DAY
     </span>
-
   </div>
 
   <h1>
-
     <span data-i18n="heroLine1">
       Useful tips
     </span>
-
     <br>
-
     <span data-i18n="heroLine2">
       without the extra.
     </span>
-
   </h1>
 
   <p class="subtitle" data-i18n="subtitle">
@@ -1012,109 +920,49 @@ h1 span{
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">⚡</div>
-<h3 data-en="Speed up your computer"
-    data-ru="Ускорить компьютер">
-Speed up your computer
-</h3>
-<p data-en="Close unnecessary background programs and check which apps launch automatically with the system."
-   data-ru="Закрой ненужные фоновые программы и проверь приложения, которые запускаются вместе с системой.">
-Close unnecessary background programs and check which apps launch automatically with the system.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Speed up your computer" data-ru="Ускорить компьютер">Speed up your computer</h3>
+<p data-en="Close unnecessary background programs and check which apps launch automatically with the system." data-ru="Закрой ненужные фоновые программы и проверь приложения, которые запускаются вместе с системой.">Close unnecessary background programs and check which apps launch automatically with the system.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">💾</div>
-<h3 data-en="Free up storage"
-    data-ru="Освободить место">
-Free up storage
-</h3>
-<p data-en="Check your downloads folder, recycle bin, and temporary files. They often contain a lot of unnecessary data."
-   data-ru="Проверь папку загрузок, корзину и временные файлы. Там часто находится много ненужных данных.">
-Check your downloads folder, recycle bin, and temporary files. They often contain a lot of unnecessary data.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Free up storage" data-ru="Освободить место">Free up storage</h3>
+<p data-en="Check your downloads folder, recycle bin, and temporary files. They often contain a lot of unnecessary data." data-ru="Проверь папку загрузок, корзину и временные файлы. Там часто находится много ненужных данных.">Check your downloads folder, recycle bin, and temporary files. They often contain a lot of unnecessary data.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">⌨</div>
-<h3 data-en="Useful keyboard shortcuts"
-    data-ru="Полезные клавиши">
-Useful keyboard shortcuts
-</h3>
-<p data-en="Ctrl+C copies, Ctrl+V pastes, Ctrl+Z undoes an action, and Ctrl+F opens search."
-   data-ru="Ctrl+C копирует, Ctrl+V вставляет, Ctrl+Z отменяет действие, а Ctrl+F открывает поиск.">
-Ctrl+C copies, Ctrl+V pastes, Ctrl+Z undoes an action, and Ctrl+F opens search.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Useful keyboard shortcuts" data-ru="Полезные клавиши">Useful keyboard shortcuts</h3>
+<p data-en="Ctrl+C copies, Ctrl+V pastes, Ctrl+Z undoes an action, and Ctrl+F opens search." data-ru="Ctrl+C копирует, Ctrl+V вставляет, Ctrl+Z отменяет действие, а Ctrl+F открывает поиск.">Ctrl+C copies, Ctrl+V pastes, Ctrl+Z undoes an action, and Ctrl+F opens search.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">🔋</div>
-<h3 data-en="Save battery"
-    data-ru="Экономить заряд">
-Save battery
-</h3>
-<p data-en="Lower your screen brightness and turn off features you are not currently using."
-   data-ru="Уменьши яркость экрана и отключи функции, которые сейчас не используются.">
-Lower your screen brightness and turn off features you are not currently using.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Save battery" data-ru="Экономить заряд">Save battery</h3>
+<p data-en="Lower your screen brightness and turn off features you are not currently using." data-ru="Уменьши яркость экрана и отключи функции, которые сейчас не используются.">Lower your screen brightness and turn off features you are not currently using.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">🔐</div>
-<h3 data-en="Protect your account"
-    data-ru="Защитить аккаунт">
-Protect your account
-</h3>
-<p data-en="Use a unique password and enable two-step verification wherever it is available."
-   data-ru="Используй уникальный пароль и включай двухэтапную проверку там, где она доступна.">
-Use a unique password and enable two-step verification wherever it is available.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Protect your account" data-ru="Защитить аккаунт">Protect your account</h3>
+<p data-en="Use a unique password and enable two-step verification wherever it is available." data-ru="Используй уникальный пароль и включай двухэтапную проверку там, где она доступна.">Use a unique password and enable two-step verification wherever it is available.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <article class="card" data-category="tech">
 <button class="save">♡</button>
 <div class="cardIcon">🌐</div>
-<h3 data-en="Speed up a slow page"
-    data-ru="Ускорить медленную страницу">
-Speed up a slow page
-</h3>
-<p data-en="Try closing unnecessary browser tabs and restarting the browser. This can help on slower devices."
-   data-ru="Попробуй закрыть ненужные вкладки браузера и перезапустить его. Это может помочь на слабых устройствах.">
-Try closing unnecessary browser tabs and restarting the browser. This can help on slower devices.
-</p>
-<span class="tag"
-      data-en="Technology"
-      data-ru="Технологии">
-Technology
-</span>
+<h3 data-en="Speed up a slow page" data-ru="Ускорить медленную страницу">Speed up a slow page</h3>
+<p data-en="Try closing unnecessary browser tabs and restarting the browser. This can help on slower devices." data-ru="Попробуй закрыть ненужные вкладки браузера и перезапустить его. Это может помочь на слабых устройствах.">Try closing unnecessary browser tabs and restarting the browser. This can help on slower devices.</p>
+<span class="tag" data-en="Technology" data-ru="Технологии">Technology</span>
 </article>
 
 <!-- STUDY -->
@@ -1122,109 +970,49 @@ Technology
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">🧠</div>
-<h3 data-en="Remember things better"
-    data-ru="Лучше запоминать">
-Remember things better
-</h3>
-<p data-en="After studying something, try explaining it in your own words without looking at the material."
-   data-ru="После изучения материала попробуй объяснить его своими словами, не глядя на текст.">
-After studying something, try explaining it in your own words without looking at the material.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Remember things better" data-ru="Лучше запоминать">Remember things better</h3>
+<p data-en="After studying something, try explaining it in your own words without looking at the material." data-ru="После изучения материала попробуй объяснить его своими словами, не глядя на текст.">After studying something, try explaining it in your own words without looking at the material.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">⏱</div>
-<h3 data-en="Stop putting off studying"
-    data-ru="Не откладывать учёбу">
-Stop putting off studying
-</h3>
-<p data-en="Start with just five minutes. The hardest part is often simply getting started."
-   data-ru="Начни хотя бы с пяти минут. Самое сложное обычно — просто начать.">
-Start with just five minutes. The hardest part is often simply getting started.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Stop putting off studying" data-ru="Не откладывать учёбу">Stop putting off studying</h3>
+<p data-en="Start with just five minutes. The hardest part is often simply getting started." data-ru="Начни хотя бы с пяти минут. Самое сложное обычно — просто начать.">Start with just five minutes. The hardest part is often simply getting started.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">📝</div>
-<h3 data-en="Take notes faster"
-    data-ru="Конспектировать быстрее">
-Take notes faster
-</h3>
-<p data-en="Write down the main ideas and keywords instead of copying the entire text."
-   data-ru="Записывай основные мысли и ключевые слова вместо полного переписывания текста.">
-Write down the main ideas and keywords instead of copying the entire text.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Take notes faster" data-ru="Конспектировать быстрее">Take notes faster</h3>
+<p data-en="Write down the main ideas and keywords instead of copying the entire text." data-ru="Записывай основные мысли и ключевые слова вместо полного переписывания текста.">Write down the main ideas and keywords instead of copying the entire text.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">📚</div>
-<h3 data-en="Understand a difficult topic"
-    data-ru="Разобраться в сложной теме">
-Understand a difficult topic
-</h3>
-<p data-en="Break a difficult topic into several smaller questions and work through them one at a time."
-   data-ru="Раздели сложную тему на несколько маленьких вопросов и разбирай их по очереди.">
-Break a difficult topic into several smaller questions and work through them one at a time.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Understand a difficult topic" data-ru="Разобраться в сложной теме">Understand a difficult topic</h3>
+<p data-en="Break a difficult topic into several smaller questions and work through them one at a time." data-ru="Раздели сложную тему на несколько маленьких вопросов и разбирай их по очереди.">Break a difficult topic into several smaller questions and work through them one at a time.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">🔄</div>
-<h3 data-en="Review more effectively"
-    data-ru="Повторять эффективнее">
-Review more effectively
-</h3>
-<p data-en="Review material at intervals instead of repeating it several times in a row."
-   data-ru="Повторяй материал через промежутки времени, а не несколько раз подряд.">
-Review material at intervals instead of repeating it several times in a row.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Review more effectively" data-ru="Повторять эффективнее">Review more effectively</h3>
+<p data-en="Review material at intervals instead of repeating it several times in a row." data-ru="Повторяй материал через промежутки времени, а не несколько раз подряд.">Review material at intervals instead of repeating it several times in a row.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <article class="card" data-category="study">
 <button class="save">♡</button>
 <div class="cardIcon">🎯</div>
-<h3 data-en="Stay focused"
-    data-ru="Не отвлекаться">
-Stay focused
-</h3>
-<p data-en="Turn off unnecessary notifications and keep only the materials you need in front of you."
-   data-ru="Отключи ненужные уведомления и оставь перед собой только необходимые материалы.">
-Turn off unnecessary notifications and keep only the materials you need in front of you.
-</p>
-<span class="tag"
-      data-en="Study"
-      data-ru="Учёба">
-Study
-</span>
+<h3 data-en="Stay focused" data-ru="Не отвлекаться">Stay focused</h3>
+<p data-en="Turn off unnecessary notifications and keep only the materials you need in front of you." data-ru="Отключи ненужные уведомления и оставь перед собой только необходимые материалы.">Turn off unnecessary notifications and keep only the materials you need in front of you.</p>
+<span class="tag" data-en="Study" data-ru="Учёба">Study</span>
 </article>
 
 <!-- LIFE -->
@@ -1232,109 +1020,49 @@ Study
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">✓</div>
-<h3 data-en="Remember important things"
-    data-ru="Не забывать важное">
-Remember important things
-</h3>
-<p data-en="Write tasks down as soon as they appear instead of trying to keep everything in your head."
-   data-ru="Записывай задачи сразу после того, как они появились, вместо того чтобы держать всё в голове.">
-Write tasks down as soon as they appear instead of trying to keep everything in your head.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Remember important things" data-ru="Не забывать важное">Remember important things</h3>
+<p data-en="Write tasks down as soon as they appear instead of trying to keep everything in your head." data-ru="Записывай задачи сразу после того, как они появились, вместо того чтобы держать всё в голове.">Write tasks down as soon as they appear instead of trying to keep everything in your head.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">🗓</div>
-<h3 data-en="Plan your day"
-    data-ru="Планировать день">
-Plan your day
-</h3>
-<p data-en="Choose a few important tasks for the day. A huge to-do list can often get in the way."
-   data-ru="Выбери несколько важных задач на день. Огромный список дел часто только мешает.">
-Choose a few important tasks for the day. A huge to-do list can often get in the way.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Plan your day" data-ru="Планировать день">Plan your day</h3>
+<p data-en="Choose a few important tasks for the day. A huge to-do list can often get in the way." data-ru="Выбери несколько важных задач на день. Огромный список дел часто только мешает.">Choose a few important tasks for the day. A huge to-do list can often get in the way.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">🧹</div>
-<h3 data-en="Clean up faster"
-    data-ru="Быстрее навести порядок">
-Clean up faster
-</h3>
-<p data-en="Start by clearing the most visible surfaces, then move on to the smaller details."
-   data-ru="Сначала убери самые заметные поверхности, а затем переходи к мелочам.">
-Start by clearing the most visible surfaces, then move on to the smaller details.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Clean up faster" data-ru="Быстрее навести порядок">Clean up faster</h3>
+<p data-en="Start by clearing the most visible surfaces, then move on to the smaller details." data-ru="Сначала убери самые заметные поверхности, а затем переходи к мелочам.">Start by clearing the most visible surfaces, then move on to the smaller details.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">💡</div>
-<h3 data-en="Remember an idea"
-    data-ru="Не забыть идею">
-Remember an idea
-</h3>
-<p data-en="Write it down in one sentence. Later, when you have time, you can develop the idea further."
-   data-ru="Запиши её одним предложением. Позже, когда будет время, можно развить мысль.">
-Write it down in one sentence. Later, when you have time, you can develop the idea further.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Remember an idea" data-ru="Не забыть идею">Remember an idea</h3>
+<p data-en="Write it down in one sentence. Later, when you have time, you can develop the idea further." data-ru="Запиши её одним предложением. Позже, когда будет время, можно развить мысль.">Write it down in one sentence. Later, when you have time, you can develop the idea further.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">🎒</div>
-<h3 data-en="Get ready faster"
-    data-ru="Собраться быстрее">
-Get ready faster
-</h3>
-<p data-en="Prepare the things you need in advance so you do not have to search for everything in the morning."
-   data-ru="Сложи необходимые вещи заранее, чтобы утром не искать всё по отдельности.">
-Prepare the things you need in advance so you do not have to search for everything in the morning.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Get ready faster" data-ru="Собраться быстрее">Get ready faster</h3>
+<p data-en="Prepare the things you need in advance so you do not have to search for everything in the morning." data-ru="Сложи необходимые вещи заранее, чтобы утром не искать всё по отдельности.">Prepare the things you need in advance so you do not have to search for everything in the morning.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <article class="card" data-category="life">
 <button class="save">♡</button>
 <div class="cardIcon">🌙</div>
-<h3 data-en="Prepare for sleep"
-    data-ru="Подготовиться ко сну">
-Prepare for sleep
-</h3>
-<p data-en="Finish your tasks before bed and take a break from bright screens for a while."
-   data-ru="Закончи дела перед сном и сделай перерыв от ярких экранов на некоторое время.">
-Finish your tasks before bed and take a break from bright screens for a while.
-</p>
-<span class="tag"
-      data-en="Life"
-      data-ru="Жизнь">
-Life
-</span>
+<h3 data-en="Prepare for sleep" data-ru="Подготовиться ко сну">Prepare for sleep</h3>
+<p data-en="Finish your tasks before bed and take a break from bright screens for a while." data-ru="Закончи дела перед сном и сделай перерыв от ярких экранов на некоторое время.">Finish your tasks before bed and take a break from bright screens for a while.</p>
+<span class="tag" data-en="Life" data-ru="Жизнь">Life</span>
 </article>
 
 <!-- GAMING -->
@@ -1342,109 +1070,49 @@ Life
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">🎮</div>
-<h3 data-en="Reduce game lag"
-    data-ru="Уменьшить лаги">
-Reduce game lag
-</h3>
-<p data-en="Close unnecessary apps, check your available storage, and try lowering the graphics settings."
-   data-ru="Закрой ненужные приложения, проверь свободное место и попробуй снизить настройки графики.">
-Close unnecessary apps, check your available storage, and try lowering the graphics settings.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Reduce game lag" data-ru="Уменьшить лаги">Reduce game lag</h3>
+<p data-en="Close unnecessary apps, check your available storage, and try lowering the graphics settings." data-ru="Закрой ненужные приложения, проверь свободное место и попробуй снизить настройки графики.">Close unnecessary apps, check your available storage, and try lowering the graphics settings.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">🎯</div>
-<h3 data-en="Improve your reaction"
-    data-ru="Тренировать реакцию">
-Improve your reaction
-</h3>
-<p data-en="Short, regular practice sessions are usually more useful than one extremely long session."
-   data-ru="Короткие регулярные тренировки обычно полезнее одного очень долгого занятия.">
-Short, regular practice sessions are usually more useful than one extremely long session.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Improve your reaction" data-ru="Тренировать реакцию">Improve your reaction</h3>
+<p data-en="Short, regular practice sessions are usually more useful than one extremely long session." data-ru="Короткие регулярные тренировки обычно полезнее одного очень долгого занятия.">Short, regular practice sessions are usually more useful than one extremely long session.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">⚙</div>
-<h3 data-en="Adjust your controls"
-    data-ru="Настроить управление">
-Adjust your controls
-</h3>
-<p data-en="Try changing sensitivity and button placement to match the way you play."
-   data-ru="Попробуй изменить чувствительность и расположение кнопок под свой стиль игры.">
-Try changing sensitivity and button placement to match the way you play.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Adjust your controls" data-ru="Настроить управление">Adjust your controls</h3>
+<p data-en="Try changing sensitivity and button placement to match the way you play." data-ru="Попробуй изменить чувствительность и расположение кнопок под свой стиль игры.">Try changing sensitivity and button placement to match the way you play.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">📶</div>
-<h3 data-en="Improve connection stability"
-    data-ru="Сделать соединение стабильнее">
-Improve connection stability
-</h3>
-<p data-en="Reduce network load and try moving closer to your router."
-   data-ru="Уменьши нагрузку на сеть и попробуй находиться ближе к роутеру.">
-Reduce network load and try moving closer to your router.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Improve connection stability" data-ru="Сделать соединение стабильнее">Improve connection stability</h3>
+<p data-en="Reduce network load and try moving closer to your router." data-ru="Уменьши нагрузку на сеть и попробуй находиться ближе к роутеру.">Reduce network load and try moving closer to your router.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">🏆</div>
-<h3 data-en="Keep your progress safe"
-    data-ru="Сохранить прогресс">
-Keep your progress safe
-</h3>
-<p data-en="Check whether your game progress is synchronized with your account or cloud storage."
-   data-ru="Проверь, синхронизируется ли игровой прогресс с аккаунтом или облачным сохранением.">
-Check whether your game progress is synchronized with your account or cloud storage.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Keep your progress safe" data-ru="Сохранить прогресс">Keep your progress safe</h3>
+<p data-en="Check whether your game progress is synchronized with your account or cloud storage." data-ru="Проверь, синхронизируется ли игровой прогресс с аккаунтом или облачным сохранением.">Check whether your game progress is synchronized with your account or cloud storage.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <article class="card" data-category="gaming">
 <button class="save">♡</button>
 <div class="cardIcon">🔊</div>
-<h3 data-en="Hear important game sounds"
-    data-ru="Лучше слышать игровые звуки">
-Hear important game sounds
-</h3>
-<p data-en="Adjust effects and music volume so important game sounds do not get drowned out."
-   data-ru="Настрой громкость эффектов и музыки так, чтобы важные игровые звуки не терялись.">
-Adjust effects and music volume so important game sounds do not get drowned out.
-</p>
-<span class="tag"
-      data-en="Gaming"
-      data-ru="Игры">
-Gaming
-</span>
+<h3 data-en="Hear important game sounds" data-ru="Лучше слышать игровые звуки">Hear important game sounds</h3>
+<p data-en="Adjust effects and music volume so important game sounds do not get drowned out." data-ru="Настрой громкость эффектов и музыки так, чтобы важные игровые звуки не терялись.">Adjust effects and music volume so important game sounds do not get drowned out.</p>
+<span class="tag" data-en="Gaming" data-ru="Игры">Gaming</span>
 </article>
 
 <!-- USEFUL -->
@@ -1452,125 +1120,61 @@ Gaming
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">🔎</div>
-<h3 data-en="Verify information"
-    data-ru="Проверить информацию">
-Verify information
-</h3>
-<p data-en="Compare questionable information with several independent and reliable sources."
-   data-ru="Сравни сомнительную информацию с несколькими независимыми и надёжными источниками.">
-Compare questionable information with several independent and reliable sources.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Verify information" data-ru="Проверить информацию">Verify information</h3>
+<p data-en="Compare questionable information with several independent and reliable sources." data-ru="Сравни сомнительную информацию с несколькими независимыми и надёжными источниками.">Compare questionable information with several independent and reliable sources.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">💰</div>
-<h3 data-en="Avoid unnecessary purchases"
-    data-ru="Не покупать лишнее">
-Avoid unnecessary purchases
-</h3>
-<p data-en="Before buying something, wait a little and compare the price across several stores."
-   data-ru="Перед покупкой немного подожди и сравни цену в нескольких магазинах.">
-Before buying something, wait a little and compare the price across several stores.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Avoid unnecessary purchases" data-ru="Не покупать лишнее">Avoid unnecessary purchases</h3>
+<p data-en="Before buying something, wait a little and compare the price across several stores." data-ru="Перед покупкой немного подожди и сравни цену в нескольких магазинах.">Before buying something, wait a little and compare the price across several stores.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">📱</div>
-<h3 data-en="Find a file quickly"
-    data-ru="Быстро найти файл">
-Find a file quickly
-</h3>
-<p data-en="Search by file name instead of spending a long time looking through every folder manually."
-   data-ru="Используй поиск по имени файла вместо долгого просмотра всех папок вручную.">
-Search by file name instead of spending a long time looking through every folder manually.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Find a file quickly" data-ru="Быстро найти файл">Find a file quickly</h3>
+<p data-en="Search by file name instead of spending a long time looking through every folder manually." data-ru="Используй поиск по имени файла вместо долгого просмотра всех папок вручную.">Search by file name instead of spending a long time looking through every folder manually.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">🧩</div>
-<h3 data-en="Solve a problem"
-    data-ru="Разобраться с проблемой">
-Solve a problem
-</h3>
-<p data-en="First try to reproduce the problem and identify which action causes it to appear."
-   data-ru="Сначала попробуй воспроизвести проблему и определить, после какого действия она появляется.">
-First try to reproduce the problem and identify which action causes it to appear.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Solve a problem" data-ru="Разобраться с проблемой">Solve a problem</h3>
+<p data-en="First try to reproduce the problem and identify which action causes it to appear." data-ru="Сначала попробуй воспроизвести проблему и определить, после какого действия она появляется.">First try to reproduce the problem and identify which action causes it to appear.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">📌</div>
-<h3 data-en="Do not forget things"
-    data-ru="Ничего не забыть">
-Do not forget things
-</h3>
-<p data-en="Use notes or a task list for things you need to do later."
-   data-ru="Используй заметки или список задач для вещей, которые нужно сделать позже.">
-Use notes or a task list for things you need to do later.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Do not forget things" data-ru="Ничего не забыть">Do not forget things</h3>
+<p data-en="Use notes or a task list for things you need to do later." data-ru="Используй заметки или список задач для вещей, которые нужно сделать позже.">Use notes or a task list for things you need to do later.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
 <article class="card" data-category="useful">
 <button class="save">♡</button>
 <div class="cardIcon">🔧</div>
-<h3 data-en="Start with the simple things"
-    data-ru="Начни с простого">
-Start with the simple things
-</h3>
-<p data-en="Before trying a complicated repair or setting, check the most obvious causes first."
-   data-ru="Перед сложным ремонтом или настройкой проверь самые очевидные причины проблемы.">
-Before trying a complicated repair or setting, check the most obvious causes first.
-</p>
-<span class="tag"
-      data-en="Useful"
-      data-ru="Полезное">
-Useful
-</span>
+<h3 data-en="Start with the simple things" data-ru="Начни с простого">Start with the simple things</h3>
+<p data-en="Before trying a complicated repair or setting, check the most obvious causes first." data-ru="Перед сложным ремонтом или настройкой проверь самые очевидные причины проблемы.">Before trying a complicated repair or setting, check the most obvious causes first.</p>
+<span class="tag" data-en="Useful" data-ru="Полезное">Useful</span>
 </article>
 
   </div>
 
   <div class="empty" id="empty">
-
     <span data-i18n="nothingFound">
       Nothing found.
     </span>
-
     <br>
-
     <span data-i18n="tryAnother">
       Try another search or category.
     </span>
-
   </div>
 
 </section>
@@ -1581,57 +1185,30 @@ Useful
 <script>
 
 const cards=[...document.querySelectorAll(".card")];
-
-const categories=[
-  ...document.querySelectorAll(".category")
-];
-
-const nav=[
-  ...document.querySelectorAll(".nav button")
-];
+const categories=[...document.querySelectorAll(".category")];
+const nav=[...document.querySelectorAll(".nav button")];
 
 const search=document.getElementById("search");
+const counter=document.getElementById("counter");
+const empty=document.getElementById("empty");
 
-const counter=
-  document.getElementById("counter");
+const sidebar=document.getElementById("sidebar");
+const overlay=document.getElementById("overlay");
+const menu=document.getElementById("menu");
 
-const empty=
-  document.getElementById("empty");
+const settingsButton=document.getElementById("settingsButton");
+const settingsPanel=document.getElementById("settingsPanel");
+const closeSettings=document.getElementById("closeSettings");
+const settingsOverlay=document.getElementById("settingsOverlay");
 
-const sidebar=
-  document.getElementById("sidebar");
-
-const overlay=
-  document.getElementById("overlay");
-
-const menu=
-  document.getElementById("menu");
-
-const settingsButton=
-  document.getElementById("settingsButton");
-
-const settingsPanel=
-  document.getElementById("settingsPanel");
-
-const closeSettings=
-  document.getElementById("closeSettings");
-
-const settingsOverlay=
-  document.getElementById("settingsOverlay");
-
-const languageSwitch=
-  document.getElementById("languageSwitch");
-
-const languageOptions=[
-  ...document.querySelectorAll(".languageOption")
-];
+const languageSwitch=document.getElementById("languageSwitch");
+const languageOptions=[...document.querySelectorAll(".languageOption")];
 
 let current="all";
 
-let saved=
-  JSON.parse(
-    localStorage.getItem("hintlySaved")||"[]"
-  );
+let saved=JSON.parse(
+  localStorage.getItem("hintlySaved")||"[]"
+);
 
 let language=
   localStorage.getItem("hintlyLanguage")||"en";
@@ -1706,8 +1283,7 @@ function applyLanguage(){
 
   const t=translations[language];
 
-  document.documentElement.lang=
-    language;
+  document.documentElement.lang=language;
 
   document
     .querySelectorAll("[data-i18n]")
@@ -1727,13 +1303,10 @@ function applyLanguage(){
       : search.dataset.placeholderEn;
 
   document
-    .querySelectorAll(
-      ".card h3,.card p,.card .tag"
-    )
+    .querySelectorAll(".card h3,.card p,.card .tag")
     .forEach(el=>{
 
-      const value=
-        el.dataset[language];
+      const value=el.dataset[language];
 
       if(value!==undefined){
         el.textContent=value;
@@ -1756,7 +1329,6 @@ function applyLanguage(){
   );
 
   update();
-
 }
 
 languageOptions.forEach(option=>{
@@ -1765,8 +1337,7 @@ languageOptions.forEach(option=>{
     "click",
     ()=>{
 
-      language=
-        option.dataset.language;
+      language=option.dataset.language;
 
       localStorage.setItem(
         "hintlyLanguage",
@@ -1786,8 +1357,7 @@ cards.forEach((card,i)=>{
 
   card.dataset.id=i;
 
-  const btn=
-    card.querySelector(".save");
+  const btn=card.querySelector(".save");
 
   if(saved.includes(i)){
 
@@ -1804,23 +1374,16 @@ cards.forEach((card,i)=>{
 
       if(saved.includes(i)){
 
-        saved=
-          saved.filter(x=>x!==i);
+        saved=saved.filter(x=>x!==i);
 
-        btn.classList.remove(
-          "saved"
-        );
-
+        btn.classList.remove("saved");
         btn.textContent="♡";
 
       }else{
 
         saved.push(i);
 
-        btn.classList.add(
-          "saved"
-        );
-
+        btn.classList.add("saved");
         btn.textContent="♥";
 
       }
@@ -1888,7 +1451,6 @@ function update(){
 
       card.style.animation=
         "show .35s ease both";
-
     }
 
   });
@@ -1922,7 +1484,6 @@ function update(){
 
   empty.style.display=
     visible?"none":"block";
-
 }
 
 /* CATEGORY */
@@ -1950,9 +1511,7 @@ function setCategory(cat){
   });
 
   update();
-
   closeMenu();
-
 }
 
 categories.forEach(b=>{
@@ -2083,7 +1642,6 @@ function openSettings(){
   );
 
   closeMenu();
-
 }
 
 function closeSettingsPanel(){
@@ -2123,6 +1681,5 @@ applyLanguage();
 
 </script>
 <script data-goatcounter="https://daniel6512.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  
 </body>
 </html>
